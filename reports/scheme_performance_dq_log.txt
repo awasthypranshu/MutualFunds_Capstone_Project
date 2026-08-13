@@ -1,0 +1,7 @@
+Loaded 40 raw rows from 07_scheme_performance.csv
+All return/ratio/expense columns are numeric -- no coercion needed
+expense_ratio_pct: all 40 schemes within [0.1, 2.5]%
+IQR outlier in return_1yr_pct: ['SBI Small Cap Fund - Regular Plan - Growth', 'Kotak Liquid Fund - Regular - Growth', 'ABSL Small Cap Fund - Regular - Growth']
+IQR outlier in return_3yr_pct: ['SBI Small Cap Fund - Regular Plan - Growth', 'SBI Small Cap Fund - Direct Plan - Growth', 'SBI Magnum Gilt Fund - Regular Plan - Growth', 'Nippon India Gilt Securities Fund - Regular - Growth', 'Kotak Liquid Fund - Regular - Growth', 'ABSL Small Cap Fund - Regular - Growth', 'ABSL Liquid Fund - Regular - Growth']
+amfi_code: all values unique
+Final row count: 40  |  rows with >=1 flag: 7
