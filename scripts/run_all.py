@@ -12,6 +12,11 @@ from pathlib import Path
 
 # Use script directory for relative paths so run_all works from any CWD
 SCRIPT_DIR = Path(__file__).resolve().parent
+# Ensure cleaning modules in data/raw are importable (they were moved)
+RAW_MODULE_DIR = SCRIPT_DIR.parent / "data" / "raw"
+import sys
+if str(RAW_MODULE_DIR) not in sys.path:
+    sys.path.insert(0, str(RAW_MODULE_DIR))
 
 # Quick dependency check so users get a helpful message when packages
 # (like pandas) are not installed in the active interpreter.
