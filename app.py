@@ -52,10 +52,17 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-DATA_DIR = Path(__file__).resolve().parent / "data"
+candidate_dirs = [
+    Path(__file__).resolve().parent / "Data" / "Raw",
+    Path(__file__).resolve().parent / "data" / "Raw",
+    Path(__file__).resolve().parent.parent / "Capstone Project" / "Data" / "Raw",
+    Path(__file__).resolve().parent.parent / "Capstone Project" / "data" / "Raw",
+]
+DATA_DIR = next((p for p in candidate_dirs if p.exists()), candidate_dirs[0])
 if not DATA_DIR.exists():
-    DATA_DIR = Path(__file__).resolve().parent.parent / "Capstone Project" / "Data" / "Raw"
-
+    raise FileNotFoundError(
+        "Could not find the data folder. Checked: " + ", ".join(str(p) for p in candidate_dirs)
+    )
 
 
 # --------------------------------------------------------------------------
