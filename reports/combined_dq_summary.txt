@@ -1,0 +1,26 @@
+MUTUAL FUND DATA CLEANING -- SUMMARY
+========================================
+
+## 02_nav_history.csv
+  - Loaded 46,000 raw rows from 02_nav_history.csv
+  - Removed 0 exact duplicate rows
+  - Reindexed to full daily calendar per scheme; forward-filled 18,320 non-trading-day gaps
+  - Final clean row count: 64,320 (schemes: 40)
+
+## 08_investor_transactions.csv
+  - Loaded 32,778 raw rows from 08_investor_transactions.csv
+  - transaction_type: all values already valid (SIP / Lumpsum / Redemption)
+  - transaction_date: all values parsed successfully
+  - amount_inr: all values are valid positive numbers
+  - kyc_status: all values within ['Pending', 'Rejected', 'Verified']
+  - Final clean row count: 32,778  |  rejected: 0
+
+## 07_scheme_performance.csv
+  - Loaded 40 raw rows from 07_scheme_performance.csv
+  - All return/ratio/expense columns are numeric -- no coercion needed
+  - expense_ratio_pct: all 40 schemes within [0.1, 2.5]%
+  - IQR outlier in return_1yr_pct: ['SBI Small Cap Fund - Regular Plan - Growth', 'Kotak Liquid Fund - Regular - Growth', 'ABSL Small Cap Fund - Regular - Growth']
+  - IQR outlier in return_3yr_pct: ['SBI Small Cap Fund - Regular Plan - Growth', 'SBI Small Cap Fund - Direct Plan - Growth', 'SBI Magnum Gilt Fund - Regular Plan - Growth', 'Nippon India Gilt Securities Fund - Regular - Growth', 'Kotak Liquid Fund - Regular - Growth', 'ABSL Small Cap Fund - Regular - Growth', 'ABSL Liquid Fund - Regular - Growth']
+  - amfi_code: all values unique
+  - Final row count: 40  |  rows with >=1 flag: 7
+
